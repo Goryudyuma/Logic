@@ -1,0 +1,19 @@
+﻿  Logic.cpp
+Logic.cpp(146): warning C4551: 関数呼び出しに引数リストがありません。
+Logic.cpp(156): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(209): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(217): warning C4551: 関数呼び出しに引数リストがありません。
+Logic.cpp(258): warning C4551: 関数呼び出しに引数リストがありません。
+Logic.cpp(268): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(282): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(377): warning C4018: '<=' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(431): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(433): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(446): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(453): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(462): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(473): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(480): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+Logic.cpp(489): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+d:\新しいフォルダー (2)\新しいフォルダー (4)\visual studio 2013\projects\logic\logic\logic.cpp(219): warning C4715: 'board::return_bord_one_line' : 値を返さないコントロール パスがあります。
+  Logic.vcxproj -> d:\新しいフォルダー (2)\新しいフォルダー (4)\visual studio 2013\Projects\Logic\Debug\Logic.exe

@@ -267,30 +267,50 @@ void board::serch_and_rewrite()
 	vector<int> clear_data;
 	for (size_t i = 0; i < x_length; i++)
 	{
-		clear_data = serch_and_rewrite_sub(return_bord_one_line(i, -1), x.return_data_one_line(i), y.return_length());
-		for (auto ite = clear_data.begin(); ite < clear_data.end(); ite++)
+		vector<int> s = x.return_data_one_line(i);
+		if (!s[0])
 		{
-			cout << i << *ite << endl;
-			if (main_board[i][*ite] == none)
+			clear_data = serch_and_rewrite_sub(return_bord_one_line(i, -1), x.return_data_one_line(i), y.return_length());
+			for (auto ite = clear_data.begin(); ite < clear_data.end(); ite++)
 			{
-
-				rewrite_main_bord(i, *ite, (char)black);
+				cout << i << *ite << endl;
+				if (main_board[i][*ite % 10000] == none)
+				{
+					if (*ite >= 10000)
+					{
+						rewrite_main_bord(i, *ite % 10000, (char)white);
+					} else
+					{
+						rewrite_main_bord(i, *ite, (char)black);
+					}
+				}
 			}
+			clear_data.clear();
 		}
-		clear_data.clear();
 	}
 	for (size_t i = 0; i < y_length; i++)
 	{
-		clear_data = serch_and_rewrite_sub(return_bord_one_line(-1, i), y.return_data_one_line(i), x.return_length());
-		for (auto ite = clear_data.begin(); ite < clear_data.end(); ite++)
+		vector<int> s = y.return_data_one_line(i);
+		if (!s[0])
 		{
-			cout << i << *ite << endl;
-			if (main_board[*ite][i] == none)
+			clear_data = serch_and_rewrite_sub(return_bord_one_line(-1, i), y.return_data_one_line(i), x.return_length());
+			for (auto ite = clear_data.begin(); ite < clear_data.end(); ite++)
 			{
-				rewrite_main_bord(*ite, i, (char)black);
+				cout << i << *ite << endl;
+				if (main_board[*ite % 10000][i] == none)
+				{
+					if (*ite >= 10000)
+					{
+						rewrite_main_bord(*ite % 10000, i, (char)white);
+					} else
+					{
+						rewrite_main_bord(*ite, i, (char)black);
+					}
+				}
 			}
+
+			clear_data.clear();
 		}
-		clear_data.clear();
 	}
 }
 
@@ -316,7 +336,7 @@ vector<int> board::serch_and_rewrite_sub(vector<char> board_one_line, vector<int
 						flag = 1;
 						break;
 					}
-					if (ite == v_i.begin() + 1 && i > 0 && i < limit&& v_c[i - 1] == black)
+					if (ite == v_i.begin() + 1 && i > 0 && i < limit&& v_c[i - 1] == black&&v_c[i]==none)
 					{
 						flag2 = 1;
 						if (b)
@@ -328,7 +348,16 @@ vector<int> board::serch_and_rewrite_sub(vector<char> board_one_line, vector<int
 						}
 					}
 				}
-				
+				if (flag2&&i != *ite + start)
+				{
+					if (b)
+					{
+						black_point.push_back(i+10000);
+					} else
+					{
+						black_point.push_back(limit - i - 1+10000);
+					}
+				}
 				if (!flag)
 				{
 					if (limit <= i || v_c[i] != black)
